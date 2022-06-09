@@ -1,0 +1,6 @@
+.idea
+/target/
+*.iml
+/test/
+# 项目排除路径
+/maxwell-api/target/
