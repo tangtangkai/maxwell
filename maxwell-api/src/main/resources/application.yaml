@@ -1,0 +1,11 @@
+server.port: 8081
+spring:
+  main:
+    allow-bean-definition-overriding: true
+#maxwell:
+#  dao:
+#    datasource:
+#      jdbcUrl: jdbc:mysql://localhost:3306/db_maxwell?useUnicode=true&characterEncoding=utf8&useSSL=false&characterSetResults=UTF-8&useAffectedRows=true&failOverReadOnly=false&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&connectTimeout=2000&socketTimeout=20000&serverTimezone=Asia/Shanghai
+#      username: root
+#      password: 123456
+#      driverClass: com.mysql.cj.jdbc.Driver

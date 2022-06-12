@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+
+<generatorConfiguration>
+    <!--配置文件位置-->
+    <properties resource="generator.properties"/>
+    <!--
+        targetRuntime:
+                    Mybatis3Simple  只生成简单的实体类
+                    Mybatis3        包括复杂条件查询的Example
+    -->
+    <context id="mysql_table" targetRuntime="MyBatis3" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+        <!--让实体类进行序列化-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <!--自定义mapper插件-->
+        <!--<plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
+            <property name="caseSensitive" value="true"/>
+        </plugin>-->
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="false"/>
+        </commentGenerator>
+        <!--使用的时候记得更改，因为之前的已经被加密了-->
+        <jdbcConnection driverClass="${driverClass}" connectionURL="${connectionURL}"
+                        userId="${userId}" password="${password}"/>
+        <!--配置实体类生成位置-->
+        <javaModelGenerator targetPackage="${daoPackage}" targetProject="${daoTargetProject}">
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <sqlMapGenerator targetPackage="${daoPackage}" targetProject="${daoTargetProject}">
+
+        </sqlMapGenerator>
+        <javaClientGenerator targetPackage="${daoPackage}" type="XMLMAPPER" targetProject="${daoTargetProject}">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!--配置表名-->
+        <table tableName="${tableName}" enableDeleteByExample="${enableExample}"
+               enableSelectByExample="${enableExample}" enableCountByExample="${enableExample}"
+               enableUpdateByExample="${enableExample}" selectByExampleQueryId="${enableExample}">
+            <property name="modelOnly" value="false"/>
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+
+    </context>
+</generatorConfiguration>
