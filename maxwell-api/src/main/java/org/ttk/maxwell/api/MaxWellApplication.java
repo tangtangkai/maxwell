@@ -17,6 +17,5 @@ public class MaxWellApplication {
         MaxwellTestMapper bean = context.getBean(MaxwellTestMapper.class);
         List<MaxwellTest> maxwellTests = bean.selectByExample(new MaxwellTestExample());
         System.out.println(JSONObject.toJSONString(maxwellTests));
-
     }
 }

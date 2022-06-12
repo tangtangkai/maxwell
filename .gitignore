@@ -1,6 +1,19 @@
 .idea
-/target/
+**/target/
 *.iml
 /test/
 # 项目排除路径
 /maxwell-api/target/
+**/node_modules/
+**/.vscode/
+.quasar
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+# Editor directories and files
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.class
