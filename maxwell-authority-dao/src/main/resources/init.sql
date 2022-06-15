@@ -23,7 +23,7 @@ create table maxwell_user_role(
 )engine=innodb default charset=utf8mb4 comment='用户角色关联表';
 
 create table maxwell_role(
-    role_id bigint(40) not null,
+    role_id bigint(40) not null auto_increment,
     role_name varchar(64) not null,
     role_describe varchar(128) default null,
     create_time datetime not null default current_timestamp comment '创建时间',
@@ -31,7 +31,23 @@ create table maxwell_role(
     primary key(`role_id`)
 )engine=innodb default charset=utf8mb4 comment='用户角色表';
 
-create table maxwell_permission(
-    permission_id bigint(40) not null,
+create table maxwell_resource(
+    resource_id bigint(40) not null auto_increment,
+    resource_parent_id bigint(40) not null default '-2' comment '上一级资源 -1根资源 -2 未分配',
+    resource_code varchar(64) not null,
+    resource_name varchar(64) not null,
+    resource_config text default '{}',
+    create_time datetime not null default current_timestamp comment '创建时间',
+    update_time datetime not null default current_timestamp on update current_timestamp comment '更新时间',
+    primary key(resource_id)
+)engine=innodb default charset=utf8mb4 comment='系统资源';
 
-)engine=innodb default charset=utf8mb4 comment='用户角色表';
+create table maxwell_role_resource(
+    id bigint(40) not null auto_increment,
+    role_id bigint(40) not null,
+    resource_id bigint(40) not null,
+    create_time datetime not null default current_timestamp comment '创建时间',
+    update_time datetime not null default current_timestamp on update current_timestamp comment '更新时间',
+    primary key(id)
+)engine=innodb default charset=utf8mb4 comment='角色资源关联表';
+
