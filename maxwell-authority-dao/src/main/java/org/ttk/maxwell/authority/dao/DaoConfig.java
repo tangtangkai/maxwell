@@ -1,12 +1,9 @@
-package org.ttk.maxwell.dao;
+package org.ttk.maxwell.authority.dao;
 
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@MapperScan(basePackages = { "org.ttk.maxwell.dao" })
+@MapperScan(basePackages = { "org.ttk.maxwell.authority.dao" })
 @Configuration
 public class DaoConfig {
 
